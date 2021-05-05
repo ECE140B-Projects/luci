@@ -58,21 +58,21 @@ define Package/liblucihttp-lua/install
 endef
 
 # Custom
-# define Package/luci-app-application
-#   $(call Package/luci/webtemplate)
-#   DEPENDS+=+some-package +some-other-package
-#   TITLE:=SHORT DESCRIPTION OF YOURMODULE
-# endef
+define Package/luci-app-myapplication
+  $(call Package/luci/webtemplate)
+  DEPENDS+=+some-package +some-other-package
+  TITLE:=SHORT DESCRIPTION OF YOURMODULE
+endef
 
-# define Package/luci-app-YOURMODULE/install
-#         $(call Package/luci/install/template,$(1),applications/myapplication)
-# endef
+define Package/luci-app-myapplication/install
+        $(call Package/luci/install/template,$(1),applications/myapplication)
+endef
 
-# ifneq ($(CONFIG_PACKAGE_luci-app-myapplication),)
-#         PKG_SELECTED_MODULES+=applications/YOURMODULE
-# endif
+ifneq ($(CONFIG_PACKAGE_luci-app-myapplication),)
+        PKG_SELECTED_MODULES+=applications/YOURMODULE
+endif
 
 
-# $(eval $(call BuildPackage,luci-app-myapplication)) # test
+$(eval $(call BuildPackage,luci-app-myapplication)) # test
 $(eval $(call BuildPackage,liblucihttp))
 $(eval $(call BuildPackage,liblucihttp-lua))
