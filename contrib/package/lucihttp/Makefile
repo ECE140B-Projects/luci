@@ -60,7 +60,7 @@ endef
 # Custom
 define Package/luci-app-myapplication
   $(call Package/luci/webtemplate)
-  DEPENDS+=+some-package +some-other-package
+  DEPENDS+=
   TITLE:=SHORT DESCRIPTION OF YOURMODULE
 endef
 
